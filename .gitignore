@@ -1,0 +1,52 @@
+# Datasets (too large for GitHub)
+AtoZ_3.1/
+kaggle_dataset/
+combined_dataset/
+asl_alphabet_train/
+asl_alphabet_test/
+
+# Training data and temp files
+*.zip
+*.rar
+*.7z
+
+# Old models (keep only the best one)
+cnn8grps_rad1_model.h5
+cnn8grps_rad1_model_improved.h5
+asl_mobilenet_model.h5
+
+# Python cache
+__pycache__/
+*.pyc
+*.pyo
+*.pyd
+.Python
+venv/
+env/
+*.egg-info/
+
+# IDE files
+.vscode/
+.idea/
+*.swp
+*.swo
+
+# OS files
+.DS_Store
+Thumbs.db
+
+# Flutter (separate project)
+flutter_app/
+
+# Test files
+test_api.html
+white.jpg
+
+# Documents
+*.docx
+*.pptx
+*.pdf
+
+# Other
+templates/
+Sign-Language-To-Text-and-Speech-Conversion.zip
