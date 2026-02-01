@@ -195,10 +195,10 @@ def info():
     })
 
 if __name__ == '__main__':
-    import os
-    port = int(os.environ.get('PORT', 5000))
-    
     logger.info("🚀 Starting ASL Recognition Flask API...")
-    logger.info(f"📡 Server will be accessible on port: {port}")
+    logger.info("📡 Server will be accessible at:")
+    logger.info("   - Local: http://127.0.0.1:5000")
+    logger.info("   - Network: http://192.168.1.11:5000")
+    logger.info("⚠️  Make sure Windows Firewall allows port 5000")
     
-    app.run(host='0.0.0.0', port=port, debug=False)
+    app.run(host='0.0.0.0', port=5000, debug=False)
