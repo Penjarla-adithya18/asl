@@ -3,7 +3,7 @@ services:
     name: asl-recognition-api
     env: python
     buildCommand: pip install -r render-requirements.txt
-    startCommand: gunicorn flask_api_new:app
+    startCommand: gunicorn flask_api_new:app --bind 0.0.0.0:$PORT
     envVars:
       - key: PYTHON_VERSION
-        value: 3.11.0
+        value: 3.11.7
