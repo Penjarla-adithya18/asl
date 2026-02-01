@@ -9,6 +9,7 @@ from PIL import Image
 import io
 import logging
 import os
+import gc
 
 # Configure logging
 logging.basicConfig(level=logging.INFO)
@@ -148,6 +149,10 @@ def predict():
         # Process image to extract hand
         processed = process_image(image)
         
+        # Clear memory
+        del image
+        gc.collect()
+        
         if processed is None:
             return jsonify({
                 'error': 'No hand detected',
@@ -160,6 +165,10 @@ def predict():
         predicted_class = np.argmax(prediction[0])
         confidence = float(prediction[0][predicted_class])
         letter = labels[predicted_class]
+        
+        # Clear memory
+        del processed
+        gc.collect()
         
         logger.info(f"Prediction: {letter} (confidence: {confidence*100:.2f}%)")
         
@@ -177,6 +186,7 @@ def predict():
     
     except Exception as e:
         logger.error(f"Prediction error: {e}")
+        gc.collect()  # Clean up on error too
         return jsonify({'error': str(e)}), 500
 
 @app.route('/info', methods=['GET'])
