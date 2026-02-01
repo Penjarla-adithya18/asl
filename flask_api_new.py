@@ -8,6 +8,7 @@ import base64
 from PIL import Image
 import io
 import logging
+import os
 
 # Configure logging
 logging.basicConfig(level=logging.INFO)
@@ -195,10 +196,8 @@ def info():
     })
 
 if __name__ == '__main__':
+    port = int(os.environ.get('PORT', 5000))
     logger.info("🚀 Starting ASL Recognition Flask API...")
-    logger.info("📡 Server will be accessible at:")
-    logger.info("   - Local: http://127.0.0.1:5000")
-    logger.info("   - Network: http://192.168.1.11:5000")
-    logger.info("⚠️  Make sure Windows Firewall allows port 5000")
+    logger.info(f"📡 Server running on port {port}")
     
-    app.run(host='0.0.0.0', port=5000, debug=False)
+    app.run(host='0.0.0.0', port=port, debug=False)
