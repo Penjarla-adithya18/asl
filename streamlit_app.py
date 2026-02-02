@@ -14,8 +14,8 @@ st.set_page_config(
 st.title("🤟 ASL Sign Language Recognition")
 st.markdown("Upload an image of an ASL hand sign to recognize the letter")
 
-# Flask API URL - Running locally for testing
-FLASK_API_URL = "http://localhost:5000/predict"
+# Flask API URL - Using Hugging Face for cloud deployment
+FLASK_API_URL = "https://adithyapenjarla-asl-recognition.hf.space/predict"
 
 # Initialize session state for sentence
 if 'sentence' not in st.session_state:
