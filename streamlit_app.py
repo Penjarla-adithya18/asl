@@ -14,8 +14,10 @@ st.set_page_config(
 st.title("🤟 ASL Sign Language Recognition")
 st.markdown("Upload an image of an ASL hand sign to recognize the letter")
 
-# Flask API URL - Using Render.com for cloud deployment
-FLASK_API_URL = "https://asl-10.onrender.com/predict"
+# Flask API URLs - Try Hugging Face first (16GB RAM), fallback to Render (512MB)
+FLASK_API_URL_PRIMARY = "https://adithyapenjarla-asl-recognition.hf.space/predict"
+FLASK_API_URL_BACKUP = "https://asl-10.onrender.com/predict"
+FLASK_API_URL = FLASK_API_URL_PRIMARY  # Will try backup if primary fails
 
 # Initialize session state for sentence
 if 'sentence' not in st.session_state:
