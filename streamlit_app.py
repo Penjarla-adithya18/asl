@@ -52,7 +52,7 @@ with col1:
     
     # Predict button (shown if any image is available)
     if image is not None:
-        if st.button("🔍 Recognize Sign", type="primary", use_column_width=True):
+        if st.button("🔍 Recognize Sign", type="primary"):
             with st.spinner("Processing image..."):
                 try:
                     # Prepare image for API request
