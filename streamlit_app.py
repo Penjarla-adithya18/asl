@@ -37,7 +37,7 @@ with col1:
         camera_photo = st.camera_input("Take a picture of ASL hand sign")
         if camera_photo is not None:
             image = Image.open(camera_photo)
-            st.image(image, caption="Captured Image", use_container_width=True)
+            st.image(image, caption="Captured Image", use_column_width=True)
     
     with tab2:
         # File uploader
@@ -48,11 +48,11 @@ with col1:
         )
         if uploaded_file is not None:
             image = Image.open(uploaded_file)
-            st.image(image, caption="Uploaded Image", use_container_width=True)
+            st.image(image, caption="Uploaded Image", use_column_width=True)
     
     # Predict button (shown if any image is available)
     if image is not None:
-        if st.button("🔍 Recognize Sign", type="primary", use_container_width=True):
+        if st.button("🔍 Recognize Sign", type="primary", use_column_width=True):
             with st.spinner("Processing image..."):
                 try:
                     # Prepare image for API request
