@@ -60,9 +60,9 @@ with col1:
                     image.save(img_byte_arr, format='PNG')
                     img_byte_arr.seek(0)
                     
-                    # Send request to Flask API (with longer timeout for Render free tier)
+                    # Send request to Flask API (with longer timeout for Render cold start)
                     files = {'image': ('image.png', img_byte_arr, 'image/png')}
-                    response = requests.post(FLASK_API_URL, files=files, timeout=150)
+                    response = requests.post(FLASK_API_URL, files=files, timeout=300)  # 5 min timeout for cold start
                     
                     if response.status_code == 200:
                         result = response.json()
